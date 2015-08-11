@@ -4,6 +4,7 @@ from .forms import EntryForm, ProjectForm, ClientForm
 from .models import Client, Entry, Project
 
 
+
 def clients(request):
 
     if request.method == "POST":
