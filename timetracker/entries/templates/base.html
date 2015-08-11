@@ -13,14 +13,19 @@
 
     
   </head>
-  <body>
     <div class="container">
-      <ul class="nav">
-        <li><a href="{% url 'client-list' %}">Clients</a></li>
-        <li><a href="{% url 'entry-list' %}">Entries</a></li>
-        <li><a href="{% url 'project-list' %}">Projects</a></li>
-      </ul>
+{% with request.resolver_match.url_name as url_name %}
+    <ul class="nav nav-pills">
+        <li role="presentation" class="{% if url_name == 'clients' %}active{% endif %}"><a href="{% url 'client-list' %}">Clients</a></li>
+        <li role="presentation" class="{% if url_name == 'entries' %}active{% endif %}"><a href="{% url 'entry-list' %}">Entries</a></li>
+        <li role="presentation"class="{% if url_name == 'projects' %}active{% endif %}"><a href="{% url 'project-list' %}">Projects</a></li>
+    </ul>
+{% endwith %}
+
+
+
+
+      
       {% block content %}{% endblock %}
     </div>
-  </body>
 </html>
